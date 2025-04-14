@@ -5,24 +5,19 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 
 const DashboardPage: FC = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect if not logged in
-    if (!user) {
-      router.push('/login');
-      return;
-    }
-
-    // Redirect regular users to plant detection page
-    // Only admin (test@example.com) can access admin dashboard
-    if (user.email !== 'test@example.com') {
+    if (!loading) {
+      if (!user) {
+        router.push('/login');
+        return;
+      }
+      // All users should see the plant detection page
       router.push('/plant-detection');
-    } else {
-      router.push('/admin');
     }
-  }, [user, router]);
+  }, [user, loading, router]);
 
   // Show loading state while redirecting
   return (

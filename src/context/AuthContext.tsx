@@ -4,17 +4,20 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { useRouter, usePathname } from 'next/navigation';
 
 interface User {
-  email: string;
+  _id: string;
   fullName: string;
-  role: 'admin' | 'user';
+  email: string;
+  role: string;
 }
 
 interface AuthContextType {
   user: User | null;
+  loading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  isLoading: boolean;
+  logout: () => Promise<void>;
   signup: (fullName: string, email: string, password: string) => Promise<void>;
+  isAuthenticated: boolean;
+  error: string | null;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -25,116 +28,121 @@ const PROTECTED_ROUTES = ['/plant-detection', '/admin', '/dashboard'];
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const checkAuth = () => {
+    // Check if user is logged in on mount
+    const token = localStorage.getItem('token');
+    if (token) {
+      // Decode token to get user info
       try {
-        const cookies = document.cookie.split(';');
-        const userCookie = cookies.find(c => c.trim().startsWith('user='));
-        
-        if (userCookie) {
-          const userData = JSON.parse(userCookie.split('=')[1]);
-          setUser(userData);
-          
-          // Only redirect if on login/signup pages
-          if (pathname === '/login' || pathname === '/signup') {
-            router.push(userData.role === 'admin' ? '/admin' : '/plant-detection');
-          }
-        } else {
-          // Only redirect if on protected routes
-          const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
-          if (isProtectedRoute) {
-            router.push('/login');
-          }
-        }
-      } catch (e) {
-        console.error('Error checking auth:', e);
-        document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-        const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
-        if (isProtectedRoute) {
-          router.push('/login');
-        }
-      } finally {
-        setIsLoading(false);
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        setUser({
+          _id: payload.userId,
+          fullName: payload.fullName,
+          email: payload.email,
+          role: payload.role
+        });
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        localStorage.removeItem('token');
       }
-    };
-
-    checkAuth();
-  }, [isMounted, pathname, router]);
+    }
+    setLoading(false);
+  }, []);
 
   const signup = async (fullName: string, email: string, password: string) => {
     try {
-      setIsLoading(true);
-      if (!fullName || !email || !password) {
-        throw new Error('All fields are required');
+      setError(null);
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ fullName, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Signup failed');
       }
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // After successful signup, redirect to login
-      router.push('/login');
-    } catch (error) {
+
+      // Store token and user data
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+
+      if (data.user) {
+        setUser(data.user);
+        router.push('/dashboard');
+      }
+    } catch (error: any) {
+      console.error('Signup error:', error);
+      setError(error.message || 'Signup failed. Please try again.');
       throw error;
-    } finally {
-      setIsLoading(false);
     }
   };
 
   const login = async (email: string, password: string) => {
     try {
-      setIsLoading(true);
-      if (!email || !password) throw new Error('Email and password are required');
-      
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      const userData: User = {
-        email,
-        role: email === 'test@example.com' ? 'admin' : 'user',
-        fullName: email === 'test@example.com' ? 'Admin User' : 'Regular User'
-      };
+      setError(null);
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-      document.cookie = `user=${JSON.stringify(userData)}; path=/; max-age=86400; secure; samesite=strict`;
-      setUser(userData);
-      router.push(userData.role === 'admin' ? '/admin' : '/plant-detection');
-    } catch (error) {
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Login failed');
+      }
+
+      // Store token and user data
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+      
+      if (data.user) {
+        setUser(data.user);
+        // Redirect based on user role
+        if (data.user.email === 'test@example.com') {
+          router.push('/admin/dashboard');
+        } else {
+          router.push('/dashboard');
+        }
+      }
+    } catch (error: any) {
+      console.error('Login error:', error);
+      setError(error.message || 'Login failed. Please try again.');
       throw error;
-    } finally {
-      setIsLoading(false);
     }
   };
 
-  const logout = () => {
-    document.cookie = 'user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  const logout = async () => {
+    localStorage.removeItem('token');
     setUser(null);
+    setError(null);
     router.push('/login');
   };
 
-  if (!isMounted) return null;
+  const value = {
+    user,
+    loading,
+    login,
+    logout,
+    signup,
+    isAuthenticated: !!user,
+    error,
+  };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-[#87CEEB] to-[#E6E6FA] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#7C4DFF]"></div>
-      </div>
-    );
-  }
-
-  return (
-    <AuthContext.Provider value={{ user, login, logout, isLoading, signup }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {
@@ -143,4 +151,39 @@ export function useAuth() {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
+}
+
+// Public and Protected Route components
+export function PublicRoute({ children }: { children: ReactNode }) {
+  const { isAuthenticated, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && isAuthenticated) {
+      router.push('/dashboard');
+    }
+  }, [loading, isAuthenticated, router]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return !isAuthenticated ? <>{children}</> : null;
+}
+
+export function ProtectedRoute({ children }: { children: ReactNode }) {
+  const { isAuthenticated, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.push('/login');
+    }
+  }, [loading, isAuthenticated, router]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return isAuthenticated ? <>{children}</> : null;
 } 

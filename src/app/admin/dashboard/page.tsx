@@ -13,7 +13,7 @@ interface User {
   createdAt: string;
 }
 
-const AdminPage: FC = () => {
+const AdminDashboard: FC = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
@@ -54,7 +54,7 @@ const AdminPage: FC = () => {
       if (!user || user.email !== 'test@example.com') {
         router.push('/login');
       } else {
-        router.push('/admin/dashboard');
+        fetchUsers();
       }
     }
   }, [user, loading, router]);
@@ -132,4 +132,4 @@ const AdminPage: FC = () => {
   );
 };
 
-export default AdminPage; 
+export default AdminDashboard; 

@@ -141,36 +141,34 @@ const SignUpPage: FC = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#87CEEB] to-[#E6E6FA] flex flex-col py-8">
+    <main className="signup-page">
       {/* Header */}
-      <div className="flex items-center px-6 md:px-8 mb-6">
-        <Link href="/" className="text-black hover:opacity-75 transition-opacity">
+      <div className="signup-header">
+        <Link href="/" className="back-link">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
-        <h1 className="ml-4 text-2xl md:text-3xl font-semibold text-black">Sign Up</h1>
+        <h1 className="signup-title">Sign Up</h1>
       </div>
 
       {/* Form Container */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-6">
-        <div className="w-full max-w-[400px] bg-white/20 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-black">Create your account</h2>
-            <p className="text-black/70 text-base md:text-lg">
-              Join us to detect plant diseases
-            </p>
+      <div className="signup-container">
+        <div className="signup-form-container">
+          <div className="signup-heading">
+            <h2>Create your account</h2>
+            <p>Join us to detect plant diseases</p>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form className="signup-form" onSubmit={handleSubmit}>
             {/* Full Name Input */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-black/70">
+            <div className="form-group">
+              <div className="form-label">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-                <label htmlFor="fullName" className="text-sm font-medium">Full Name</label>
+                <label htmlFor="fullName">Full Name</label>
               </div>
               <input
                 id="fullName"
@@ -178,26 +176,21 @@ const SignUpPage: FC = () => {
                 placeholder="Enter your full name"
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                  text-black placeholder-black/40 text-base
-                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                  transition-all duration-200 ${errors.fullName ? 'ring-2 ring-red-500' : ''}`}
+                className={`form-input ${errors.fullName ? 'error' : ''}`}
               />
-              <div className="h-4">
-                {errors.fullName && (
-                  <p className="text-red-500 text-xs">{errors.fullName}</p>
-                )}
-              </div>
+              {errors.fullName && (
+                <p className="form-error">{errors.fullName}</p>
+              )}
             </div>
 
             {/* Email Input */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-black/70">
+            <div className="form-group">
+              <div className="form-label">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   <path d="M22 6L12 13L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
-                <label htmlFor="email" className="text-sm font-medium">Email</label>
+                <label htmlFor="email">Email</label>
               </div>
               <input
                 id="email"
@@ -205,32 +198,27 @@ const SignUpPage: FC = () => {
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                  text-black placeholder-black/40 text-base
-                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                  transition-all duration-200 ${errors.email ? 'ring-2 ring-red-500' : ''}`}
+                className={`form-input ${errors.email ? 'error' : ''}`}
               />
-              <div className="h-4">
-                {errors.email && (
-                  <p className="text-red-500 text-xs">{errors.email}</p>
-                )}
-              </div>
+              {errors.email && (
+                <p className="form-error">{errors.email}</p>
+              )}
             </div>
 
             {/* Password Input */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-black/70">
-                <div className="flex items-center gap-2">
+            <div className="form-group">
+              <div className="form-label">
+                <div className="form-label-content">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" strokeWidth="2"/>
                     <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" strokeWidth="2"/>
                   </svg>
-                  <label htmlFor="password" className="text-sm font-medium">Password</label>
+                  <label htmlFor="password">Password</label>
                 </div>
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="text-black/40 hover:text-black/60 transition-colors"
+                  className="password-toggle"
                 >
                   {showPassword ? (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -251,32 +239,27 @@ const SignUpPage: FC = () => {
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                  text-black placeholder-black/40 text-base
-                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                  transition-all duration-200 ${errors.password ? 'ring-2 ring-red-500' : ''}`}
+                className={`form-input ${errors.password ? 'error' : ''}`}
               />
-              <div className="h-4">
-                {errors.password && (
-                  <p className="text-red-500 text-xs">{errors.password}</p>
-                )}
-              </div>
+              {errors.password && (
+                <p className="form-error">{errors.password}</p>
+              )}
             </div>
 
             {/* Confirm Password Input */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-black/70">
-                <div className="flex items-center gap-2">
+            <div className="form-group">
+              <div className="form-label">
+                <div className="form-label-content">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" strokeWidth="2"/>
                     <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" strokeWidth="2"/>
                   </svg>
-                  <label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</label>
+                  <label htmlFor="confirmPassword">Confirm Password</label>
                 </div>
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="text-black/40 hover:text-black/60 transition-colors"
+                  className="password-toggle"
                 >
                   {showConfirmPassword ? (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -297,57 +280,38 @@ const SignUpPage: FC = () => {
                 placeholder="Confirm your password"
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                  text-black placeholder-black/40 text-base
-                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                  transition-all duration-200 ${errors.confirmPassword ? 'ring-2 ring-red-500' : ''}`}
+                className={`form-input ${errors.confirmPassword ? 'error' : ''}`}
               />
-              <div className="h-4">
-                {errors.confirmPassword && (
-                  <p className="text-red-500 text-xs">{errors.confirmPassword}</p>
-                )}
-              </div>
+              {errors.confirmPassword && (
+                <p className="form-error">{errors.confirmPassword}</p>
+              )}
             </div>
 
             {/* Sign Up Button */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full h-12 bg-[#4CAF50] text-white rounded-xl font-medium 
-                text-base hover:bg-[#43A047] active:bg-[#388E3C]
-                transform transition-all duration-200 hover:scale-[1.02] 
-                active:scale-[0.98] shadow-lg hover:shadow-xl
-                disabled:opacity-50 disabled:cursor-not-allowed
-                flex items-center justify-center mt-6"
+              className="signup-button"
             >
               {isLoading ? (
-                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <svg className="loading-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="spinner-track" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="spinner-head" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
               ) : (
                 'Sign Up'
               )}
             </button>
 
-            <div className="relative py-6">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-black/10"></div>
-              </div>
-              <div className="relative flex justify-center">
-                <span className="px-4 text-sm text-black/50 bg-gradient-to-b from-[#87CEEB] to-[#E6E6FA]">or continue with</span>
-              </div>
+            <div className="signup-divider">
+              <span>or continue with</span>
             </div>
 
             {/* Google Sign Up Button */}
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              className="w-full h-12 bg-white text-gray-700 rounded-xl font-medium 
-                text-base hover:bg-gray-50 active:bg-gray-100
-                transform transition-all duration-200 hover:scale-[1.02] 
-                active:scale-[0.98] shadow-lg hover:shadow-xl
-                flex items-center justify-center gap-3"
+              className="google-button"
             >
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path
@@ -359,9 +323,9 @@ const SignUpPage: FC = () => {
             </button>
 
             {/* Login Link */}
-            <div className="text-center mt-6">
-              <span className="text-black/70">Already have an account? </span>
-              <Link href="/login" className="text-[#4CAF50] hover:text-[#43A047] font-medium transition-colors duration-200">
+            <div className="signup-link">
+              <span>Already have an account? </span>
+              <Link href="/login">
                 Login
               </Link>
             </div>
