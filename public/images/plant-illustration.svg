@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="400" viewBox="0 0 300 400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g id="plant-illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Main stem -->
+        <path d="M150,380 C150,380 150,280 150,200" stroke="#2F7A3B" stroke-width="6"/>
+        
+        <!-- Large leaves with veins -->
+        <g transform="translate(100, 150)">
+            <!-- Top leaves -->
+            <path d="M50,50 C80,50 120,20 100,-20 C60,0 50,50 50,50" fill="#4CAF50"/>
+            <path d="M60,45 C70,35 90,15 80,-10" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M70,40 C80,30 95,10 85,-15" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M80,35 C90,25 100,5 90,-20" stroke="#2F7A3B" stroke-width="1"/>
+            
+            <path d="M50,50 C20,50 -20,20 0,-20 C40,0 50,50 50,50" fill="#4CAF50"/>
+            <path d="M40,45 C30,35 10,15 20,-10" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M30,40 C20,30 5,10 15,-15" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M20,35 C10,25 0,5 10,-20" stroke="#2F7A3B" stroke-width="1"/>
+        </g>
+
+        <!-- Middle leaves -->
+        <g transform="translate(100, 220)">
+            <path d="M50,50 C90,50 140,20 120,-20 C70,0 50,50 50,50" fill="#4CAF50"/>
+            <path d="M60,45 C80,35 110,15 100,-10" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M70,40 C90,30 115,10 105,-15" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M80,35 C100,25 120,5 110,-20" stroke="#2F7A3B" stroke-width="1"/>
+            
+            <path d="M50,50 C10,50 -40,20 -20,-20 C30,0 50,50 50,50" fill="#4CAF50"/>
+            <path d="M40,45 C20,35 -10,15 0,-10" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M30,40 C10,30 -15,10 -5,-15" stroke="#2F7A3B" stroke-width="1"/>
+            <path d="M20,35 C0,25 -20,5 -10,-20" stroke="#2F7A3B" stroke-width="1"/>
+        </g>
+
+        <!-- Background plants -->
+        <g opacity="0.5">
+            <path d="M50,380 C50,380 30,350 50,320 C70,350 50,380 50,380" fill="#2F7A3B"/>
+            <path d="M250,380 C250,380 230,350 250,320 C270,350 250,380 250,380" fill="#2F7A3B"/>
+            <path d="M100,380 C100,380 80,360 100,340 C120,360 100,380 100,380" fill="#2F7A3B"/>
+            <path d="M200,380 C200,380 180,360 200,340 C220,360 200,380 200,380" fill="#2F7A3B"/>
+        </g>
+    </g>
+</svg> 
