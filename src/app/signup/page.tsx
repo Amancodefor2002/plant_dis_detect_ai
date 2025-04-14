@@ -164,7 +164,7 @@ const SignUpPage: FC = () => {
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             {/* Full Name Input */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex items-center gap-2 text-black/70">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -172,28 +172,26 @@ const SignUpPage: FC = () => {
                 </svg>
                 <label htmlFor="fullName" className="text-sm font-medium">Full Name</label>
               </div>
-              <div>
-                <input
-                  id="fullName"
-                  type="text"
-                  placeholder="Enter your full name"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                    text-black placeholder-black/40 text-base
-                    focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                    transition-all duration-200 ${errors.fullName ? 'ring-2 ring-red-500' : ''}`}
-                />
-                <div className="h-5 mt-1">
-                  {errors.fullName && (
-                    <p className="text-red-500 text-xs">{errors.fullName}</p>
-                  )}
-                </div>
+              <input
+                id="fullName"
+                type="text"
+                placeholder="Enter your full name"
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
+                  text-black placeholder-black/40 text-base
+                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
+                  transition-all duration-200 ${errors.fullName ? 'ring-2 ring-red-500' : ''}`}
+              />
+              <div className="h-4">
+                {errors.fullName && (
+                  <p className="text-red-500 text-xs">{errors.fullName}</p>
+                )}
               </div>
             </div>
 
             {/* Email Input */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex items-center gap-2 text-black/70">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -201,28 +199,26 @@ const SignUpPage: FC = () => {
                 </svg>
                 <label htmlFor="email" className="text-sm font-medium">Email</label>
               </div>
-              <div>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                    text-black placeholder-black/40 text-base
-                    focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                    transition-all duration-200 ${errors.email ? 'ring-2 ring-red-500' : ''}`}
-                />
-                <div className="h-5 mt-1">
-                  {errors.email && (
-                    <p className="text-red-500 text-xs">{errors.email}</p>
-                  )}
-                </div>
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
+                  text-black placeholder-black/40 text-base
+                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
+                  transition-all duration-200 ${errors.email ? 'ring-2 ring-red-500' : ''}`}
+              />
+              <div className="h-4">
+                {errors.email && (
+                  <p className="text-red-500 text-xs">{errors.email}</p>
+                )}
               </div>
             </div>
 
             {/* Password Input */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex items-center justify-between text-black/70">
                 <div className="flex items-center gap-2">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -249,28 +245,26 @@ const SignUpPage: FC = () => {
                   )}
                 </button>
               </div>
-              <div>
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                    text-black placeholder-black/40 text-base
-                    focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                    transition-all duration-200 ${errors.password ? 'ring-2 ring-red-500' : ''}`}
-                />
-                <div className="h-5 mt-1">
-                  {errors.password && (
-                    <p className="text-red-500 text-xs">{errors.password}</p>
-                  )}
-                </div>
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
+                  text-black placeholder-black/40 text-base
+                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
+                  transition-all duration-200 ${errors.password ? 'ring-2 ring-red-500' : ''}`}
+              />
+              <div className="h-4">
+                {errors.password && (
+                  <p className="text-red-500 text-xs">{errors.password}</p>
+                )}
               </div>
             </div>
 
             {/* Confirm Password Input */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex items-center justify-between text-black/70">
                 <div className="flex items-center gap-2">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -297,23 +291,21 @@ const SignUpPage: FC = () => {
                   )}
                 </button>
               </div>
-              <div>
-                <input
-                  id="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"}
-                  placeholder="Confirm your password"
-                  value={formData.confirmPassword}
-                  onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                  className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
-                    text-black placeholder-black/40 text-base
-                    focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
-                    transition-all duration-200 ${errors.confirmPassword ? 'ring-2 ring-red-500' : ''}`}
-                />
-                <div className="h-5 mt-1">
-                  {errors.confirmPassword && (
-                    <p className="text-red-500 text-xs">{errors.confirmPassword}</p>
-                  )}
-                </div>
+              <input
+                id="confirmPassword"
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm your password"
+                value={formData.confirmPassword}
+                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                className={`w-full h-12 px-4 rounded-xl bg-white/50 border-none
+                  text-black placeholder-black/40 text-base
+                  focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:bg-white/60
+                  transition-all duration-200 ${errors.confirmPassword ? 'ring-2 ring-red-500' : ''}`}
+              />
+              <div className="h-4">
+                {errors.confirmPassword && (
+                  <p className="text-red-500 text-xs">{errors.confirmPassword}</p>
+                )}
               </div>
             </div>
 
