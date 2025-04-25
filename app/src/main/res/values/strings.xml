@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Plant Guard AI</string>
+    <string name="app_name">Plant Disease Detection</string>
     <string name="capture">Capture</string>
     <string name="switch_camera">Switch Camera</string>
     <string name="point_camera">Point camera at a plant leaf</string>

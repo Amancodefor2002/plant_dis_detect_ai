@@ -1,34 +1,42 @@
 [
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_main.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_main.xml"
+        "merged": "com.example.plant_disease_detection.app-mergeDebugResources-40:/layout/activity_detection.xml",
+        "source": "com.example.plant_disease_detection.app-main-43:/layout/activity_detection.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_login.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_login.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\item_user.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\item_user.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_camera.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_camera.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_signup.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_signup.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_home.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_home.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_admin_panel.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_admin_panel.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_home.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_home.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_camera.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_camera.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/activity_admin.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/activity_admin.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_signup.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_signup.xml"
     },
     {
-        "merged": "com.example.plantguardai.app-mergeDebugResources-43:/layout/item_user.xml",
-        "source": "com.example.plantguardai.app-main-46:/layout/item_user.xml"
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_admin.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-mergeDebugResources-40:\\layout\\activity_admin_panel.xml",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.13\\com.example.plant_disease_detection.app-main-43:\\layout\\activity_admin_panel.xml"
+    },
+    {
+        "merged": "com.example.plant_disease_detection.app-mergeDebugResources-40:/layout/activity_camera.xml",
+        "source": "com.example.plant_disease_detection.app-main-43:/layout/activity_camera.xml"
     }
 ]

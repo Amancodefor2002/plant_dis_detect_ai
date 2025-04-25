@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.plantguardai.app-mergeDebugResources-42:/values-v24/values-v24.xml",
+            "outputFile": "com.example.plant_disease_detection.app-mergeDebugResources-39:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/asl/.gradle/caches/8.13/transforms/b0118146c2c3d8d58a98aaef2f79441f/transformed/material-1.11.0/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\8.13\\transforms\\1eb56fa480bcf07f5eba460cdf931a6f\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\8.13\\transforms\\d97ffc655429813abb1a08c120e0a9ec\\transformed\\material-1.11.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -20,16 +30,6 @@
                         "endLines": "4,5,6,7,10,13,16,19",
                         "endColumns": "84,98,86,100,10,10,10,10",
                         "endOffsets": "427,526,613,714,913,1126,1327,1542"
-                    }
-                },
-                {
-                    "source": "/Users/asl/.gradle/caches/8.13/transforms/71c11a3b41a53351977425dfd1abf0cb/transformed/appcompat-1.6.1/res/values-v24/values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
                     }
                 }
             ]

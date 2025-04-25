@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.plantguardai.app-mergeDebugResources-42:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.plant_disease_detection.app-mergeDebugResources-39:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/Users/asl/.gradle/caches/8.13/transforms/82412e4388a6ef4a26d3db4f87217710/transformed/jetified-play-services-auth-20.7.0/res/values-watch-v20/values.xml",
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\8.13\\transforms\\bfb9355bf638d1860521fa9592a56980\\transformed\\jetified-play-services-auth-21.0.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/asl/.gradle/caches/8.13/transforms/71c11a3b41a53351977425dfd1abf0cb/transformed/appcompat-1.6.1/res/values-watch-v20/values-watch-v20.xml",
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\8.13\\transforms\\1eb56fa480bcf07f5eba460cdf931a6f\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

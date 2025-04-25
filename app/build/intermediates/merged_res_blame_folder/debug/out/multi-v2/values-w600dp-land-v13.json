@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.plantguardai.app-mergeDebugResources-42:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.example.plant_disease_detection.app-mergeDebugResources-39:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/Users/asl/.gradle/caches/8.13/transforms/b0118146c2c3d8d58a98aaef2f79441f/transformed/material-1.11.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\8.13\\transforms\\d97ffc655429813abb1a08c120e0a9ec\\transformed\\material-1.11.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

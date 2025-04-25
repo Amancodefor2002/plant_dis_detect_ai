@@ -1,4 +1,4 @@
-com.example.plantguardai
+com.example.plant_disease_detection
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1373,10 +1373,6 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
-color browser_actions_bg_grey
-color browser_actions_divider_color
-color browser_actions_text_color
-color browser_actions_title_color
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -2211,8 +2207,6 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen appcompat_dialog_background_inset
-dimen browser_actions_context_menu_max_width
-dimen browser_actions_context_menu_min_padding
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -3253,22 +3247,17 @@ id bestChoice
 id blocking
 id bottom
 id bottomNav
-id bottomPanel
 id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id browser_actions_header_text
-id browser_actions_menu_item_icon
-id browser_actions_menu_item_text
-id browser_actions_menu_items
-id browser_actions_menu_view
 id buttonPanel
 id buttonsContainer
 id cache_measures
 id callMeasure
 id cancel_button
 id captureButton
+id capturedImage
 id carryVelocity
 id center
 id centerCrop
@@ -3293,12 +3282,15 @@ id compress
 id confirmPasswordInput
 id confirmPasswordInputLayout
 id confirm_button
+id confirmationControls
 id constraint
 id container
 id content
 id contentPanel
 id contiguous
+id continueButton
 id continuousVelocity
+id controlsContainer
 id coordinator
 id cos
 id counterclockwise
@@ -3320,6 +3312,8 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detectionPanel
+id detectionStatus
 id dialog_button
 id dimensions
 id direct
@@ -3549,6 +3543,8 @@ id plantText
 id position
 id postLayout
 id pressed
+id previewImage
+id previewOverlay
 id progressBar
 id progress_circular
 id progress_horizontal
@@ -3558,6 +3554,7 @@ id rectangles
 id recyclerViewUsers
 id report_drawn
 id resultText
+id retakeButton
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3665,6 +3662,7 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id thumbnailView
 id time
 id title
 id titleDividerNoCustom
@@ -3840,12 +3838,11 @@ layout abc_tooltip
 layout activity_admin
 layout activity_admin_panel
 layout activity_camera
+layout activity_detection
 layout activity_home
 layout activity_login
 layout activity_main
 layout activity_signup
-layout browser_actions_context_menu_page
-layout browser_actions_context_menu_row
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3931,7 +3928,6 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
-raw firebase_common_keep
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -4001,7 +3997,6 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string confirm_password_hint
-string copy_toast_msg
 string create_account
 string default_web_client_id
 string email_hint
@@ -4010,16 +4005,8 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
-string fallback_menu_item_copy_link
-string fallback_menu_item_open_in_browser
-string fallback_menu_item_share_link
 string full_name_hint
-string gcm_defaultSenderId
-string google_api_key
-string google_app_id
-string google_crash_reporting_api_key
 string google_signup
-string google_storage_bucket
 string grow_with_us
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
@@ -4135,7 +4122,6 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string plant_your_roots
 string point_camera
-string project_id
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
@@ -4775,8 +4761,8 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
-style Theme_PlantGuardAI
-style Theme_PlantGuardAI_NoActionBar
+style Theme_PlantDiseaseDetection
+style Theme_PlantDiseaseDetection_NoActionBar
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark
@@ -5424,4 +5410,3 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable include constraintSet
-xml image_share_filepaths
